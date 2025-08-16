@@ -122,7 +122,7 @@ public class JrebelController {
                 "        \n" +
                 "    ],\n" +
                 "    \"licenseValidFrom\": " + validFrom + ",\n" +
-                "    \"licenseValidUntil\": " + validUntil + ",\n" +
+                "    \"licenseValidUntil\": " + validUntil + "\n" +
                 "}";
 
         JSONObject jsonObject = JSONObject.fromObject(jsonStr);
