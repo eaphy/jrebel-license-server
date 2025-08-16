@@ -89,16 +89,17 @@ public class JrebelController {
         String clientRandomness = request.getParameter("randomness");
         String username = request.getParameter("username");
         String guid = request.getParameter("guid");
-        System.out.println(request.getParameterNames());
-        boolean offline = Boolean.parseBoolean(request.getParameter("offline"));
-        String validFrom = "null";
-        String validUntil = "null";
-        if (offline) {
-            String clientTime = request.getParameter("clientTime");
-            String offlineDays = request.getParameter("offlineDays");
-            long clinetTimeUntil = Long.parseLong(clientTime) + 180L * 24 * 60 * 60 * 1000;
+        boolean offline = true;
+        String validFrom = "";
+        String validUntil = "";
+        String clientTime = request.getParameter("clientTime");
+
+        try {
+            long clientTimeMillis = Long.parseLong(clientTime);
             validFrom = clientTime;
-            validUntil = String.valueOf(clinetTimeUntil);
+            validUntil = String.valueOf(clientTimeMillis + 180L * 24 * 60 * 60 * 1000);
+        } catch (NumberFormatException ignored) {
+            // 忽略非法输入，保持默认空值
         }
         String jsonStr = "{\n" +
                 "    \"serverVersion\": \"3.2.4\",\n" +
