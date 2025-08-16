@@ -113,7 +113,7 @@ public class JrebelController {
                 "    \"serverRandomness\": \"H2ulzLlh7E0=\",\n" +
                 "    \"seatPoolType\": \"standalone\",\n" +
                 "    \"statusCode\": \"SUCCESS\",\n" +
-                "    \"offline\": " + String.valueOf(offline) + ",\n" +
+                "    \"offline\": " + offline + ",\n" +
                 "    \"validFrom\": " + validFrom + ",\n" +
                 "    \"validUntil\": " + validUntil + ",\n" +
                 "    \"company\": \"Administrator\",\n" +
@@ -121,8 +121,8 @@ public class JrebelController {
                 "    \"zeroIds\": [\n" +
                 "        \n" +
                 "    ],\n" +
-                "    \"licenseValidFrom\": 1490544001000,\n" +
-                "    \"licenseValidUntil\": 1691839999000\n" +
+                "    \"licenseValidFrom\": " + validFrom + ",\n" +
+                "    \"licenseValidUntil\": " + validUntil + ",\n" +
                 "}";
 
         JSONObject jsonObject = JSONObject.fromObject(jsonStr);
